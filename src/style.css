@@ -1053,6 +1053,7 @@ img {
   .hero-image-frame {
     width: 250px;
     height: 330px;
+    animation: float-portrait 6s ease-in-out infinite;
   }
   
   .about-grid {
@@ -1063,8 +1064,14 @@ img {
     grid-column: span 12;
   }
   
+  .about-card {
+    padding: 28px 24px;
+    border-radius: 20px;
+  }
+  
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   
   .philosophy-content {
@@ -1080,6 +1087,11 @@ img {
     grid-template-columns: 1fr;
   }
   
+  .contact-info, .contact-form {
+    padding: 28px 24px;
+    border-radius: 20px;
+  }
+  
   .form-row {
     grid-template-columns: 1fr;
   }
@@ -1087,5 +1099,55 @@ img {
   .footer-container {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 70px 0;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .about-card {
+    padding: 24px 20px;
+  }
+
+  .contact-info, .contact-form {
+    padding: 24px 20px;
+  }
+}
+
+@keyframes float-portrait {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

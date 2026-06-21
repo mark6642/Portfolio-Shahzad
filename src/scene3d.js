@@ -74,6 +74,7 @@ export function init3D() {
   // Event Listeners
   window.addEventListener('resize', onWindowResize);
   window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('touchmove', onTouchMove, { passive: true });
   window.addEventListener('scroll', onScroll);
 
   // Start Render Loop
@@ -193,6 +194,15 @@ function onMouseMove(event) {
   // Normalize between -1 and 1
   targetMouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   targetMouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+}
+
+// Touch movement tracker for mobile devices
+function onTouchMove(event) {
+  if (event.touches.length > 0) {
+    // Normalize between -1 and 1
+    targetMouse.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
+    targetMouse.y = -(event.touches[0].clientY / window.innerHeight) * 2 + 1;
+  }
 }
 
 // Scroll position tracker
