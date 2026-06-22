@@ -26,7 +26,7 @@
           <nav class="nav-links">
             <a href="#hero" class="nav-link active">Home</a>
             <a href="#services" class="nav-link">Services</a>
-            <a href="#how-it-works" class="nav-link">How It Works</a>
+            <a href="#testimonials" class="nav-link">Reviews</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#contact" class="nav-link">Contact</a>
           </nav>
@@ -44,7 +44,7 @@
       <div class="mobile-nav">
         <a href="#hero" class="mobile-link">Home</a>
         <a href="#services" class="mobile-link">Services</a>
-        <a href="#how-it-works" class="mobile-link">How It Works</a>
+        <a href="#testimonials" class="mobile-link">Reviews</a>
         <a href="#about" class="mobile-link">About</a>
         <a href="#contact" class="mobile-link">Contact</a>
         <a href="#contact" class="btn btn-mobile-nav">Contact Us</a>
@@ -53,11 +53,77 @@
       <main>
         <!-- Hero Section -->
         <section id="hero" class="section hero-section">
+          <!-- Advanced Mathematical Grid & Glowing Aura Background -->
+          <div class="hero-bg-advanced">
+            <!-- Shifting Gradient Orbs -->
+            <div class="orb orb-blue"></div>
+            <div class="orb orb-green"></div>
+            <div class="orb orb-navy"></div>
+            
+            <!-- Interactive Math Particle Canvas -->
+            <canvas id="math-particle-canvas"></canvas>
+
+            <!-- Mathematical Curves & Coordinate Axes (SVG) -->
+            <svg class="math-vector-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="none">
+              <!-- Grid Pattern -->
+              <defs>
+                <pattern id="math-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(12, 35, 64, 0.03)" stroke-width="1"/>
+                </pattern>
+                <pattern id="polar-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                  <circle cx="40" cy="40" r="39" fill="none" stroke="rgba(37, 99, 235, 0.02)" stroke-width="1"/>
+                  <line x1="0" y1="40" x2="80" y2="40" stroke="rgba(37, 99, 235, 0.02)" stroke-width="1"/>
+                  <line x1="40" y1="0" x2="40" y2="80" stroke="rgba(37, 99, 235, 0.02)" stroke-width="1"/>
+                </pattern>
+                <linearGradient id="curve-grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#2563eb" stop-opacity="0.25"/>
+                  <stop offset="50%" stop-color="#1dbf73" stop-opacity="0.25"/>
+                  <stop offset="100%" stop-color="#0c2340" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="curve-grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#1dbf73" stop-opacity="0"/>
+                  <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="#0c2340" stop-opacity="0.1"/>
+                </linearGradient>
+              </defs>
+              <!-- Background grids -->
+              <rect width="100%" height="100%" fill="url(#math-grid)" />
+              <rect width="100%" height="100%" fill="url(#polar-grid)" opacity="0.6" />
+              
+              <!-- Coordinate Axes -->
+              <line class="math-axis axis-x" x1="0" y1="400" x2="1440" y2="400" stroke="rgba(12, 35, 64, 0.06)" stroke-width="2" stroke-dasharray="5 5" />
+              <line class="math-axis axis-y" x1="300" y1="0" x2="300" y2="800" stroke="rgba(12, 35, 64, 0.06)" stroke-width="2" stroke-dasharray="5 5" />
+              
+              <!-- Math Sine & Cosine Waves (Animated in CSS) -->
+              <!-- Curve 1: Sine wave -->
+              <path class="wave-path wave-1" d="M 0 400 Q 180 200 360 400 T 720 400 T 1080 400 T 1440 400" fill="none" stroke="url(#curve-grad-1)" stroke-width="3" />
+              <!-- Curve 2: Cosine/Fourier wave -->
+              <path class="wave-path wave-2" d="M 0 350 C 300 150 400 650 720 350 C 1000 100 1100 600 1440 350" fill="none" stroke="url(#curve-grad-2)" stroke-width="2" stroke-dasharray="10 5" />
+              <!-- Curve 3: Normal distribution curve -->
+              <path class="wave-path wave-3" d="M 100 700 C 400 700 500 100 750 100 C 1000 100 1100 700 1400 700" fill="none" stroke="rgba(37, 99, 235, 0.08)" stroke-width="3" />
+            </svg>
+          </div>
+
+          <!-- Floating Mathematical Symbols for Elite Wow-Factor -->
+          <div class="floating-symbol sym-1">∫ dy/dx</div>
+          <div class="floating-symbol sym-2">√x</div>
+          <div class="floating-symbol sym-3">π</div>
+          <div class="floating-symbol sym-4">x² + y² = r²</div>
+          <div class="floating-symbol sym-5">dy/dx</div>
+          <div class="floating-symbol sym-6">∑ x_i</div>
+          <div class="floating-symbol sym-7">∞</div>
+          <div class="floating-symbol sym-8">λ = c/f</div>
+          <div class="floating-symbol sym-9">sin(θ)</div>
+
           <div class="hero-container">
             <div class="hero-content reveal">
+              <div class="hero-badge-elite">
+                <span class="badge-tag-elite">Tutoring & Homework Support</span>
+                <span class="badge-rating-elite"><i data-lucide="star"></i> #1 Math Portal</span>
+              </div>
               <h1 class="hero-title">
                 EXPERT MATH <br>
-                <span class="accent-text-blue">HELP & HOMEWORK</span> <br>
+                <span class="gradient-text-elite">HELP & HOMEWORK</span> <br>
                 SUPPORT
               </h1>
               <div class="hero-subjects">
@@ -68,13 +134,13 @@
                 <span class="subject-tag">Calculus II</span>
               </div>
               <p class="hero-desc">
-                Get personalized guidance, step-by-step explanations, and support for challenging math problems.
+                Get personalized guidance, step-by-step explanations, and support for challenging <span id="typed-math-subject" class="typed-subject-highlight">Calculus</span><span class="typed-cursor">|</span> problems.
               </p>
               <div class="hero-actions">
-                <a href="#services" class="btn btn-primary">
-                  <span>View Services</span>
-                  <i data-lucide="book-open"></i>
-                </a>
+                <button id="open-contact-modal" class="btn btn-primary btn-pulse-elite">
+                  <span>Direct Contact</span>
+                  <i data-lucide="mail"></i>
+                </button>
                 <a href="https://fiverr.com" target="_blank" class="btn btn-fiverr">
                   <span>Order on Fiverr</span>
                   <i data-lucide="external-link"></i>
@@ -85,9 +151,122 @@
                 </a>
               </div>
             </div>
+            
             <div class="hero-image-container reveal delay-2">
-              <div class="hero-image-frame">
-                <img src="/math_student_hero.png" alt="Math Student Studying" class="hero-profile-img">
+              <!-- Flip Card Wrapper -->
+              <div class="hero-flip-card">
+                <!-- Sandbox Switcher Toggle -->
+                <div class="sandbox-toggle-container">
+                  <button id="toggle-sandbox-btn" class="btn-toggle-sandbox">
+                    <i data-lucide="calculator"></i>
+                    <span class="toggle-text">Try Interactive Sandbox</span>
+                  </button>
+                </div>
+                
+                <div class="hero-flip-card-inner">
+                  <!-- Front Side: Standard Profile Photo & Glass Widgets -->
+                  <div class="hero-flip-card-front">
+                    <div class="hero-image-wrapper-layered">
+                      <div class="hero-image-frame">
+                        <img src="/math_student_hero.png" alt="Math Student Studying" class="hero-profile-img">
+                      </div>
+                      <!-- Layered Glass Widget 1: Solved integral -->
+                      <div class="glass-widget-wrapper widget-left">
+                        <div class="glass-widget">
+                          <div class="widget-icon-small"><i data-lucide="calculator"></i></div>
+                          <div>
+                            <span class="widget-label-small">Calculus I</span>
+                            <span class="widget-val-small">∫ 2x dx = x² + C</span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Layered Glass Widget 2: Star rating -->
+                      <div class="glass-widget-wrapper widget-right">
+                        <div class="glass-widget">
+                          <div class="widget-icon-small icon-gold"><i data-lucide="star"></i></div>
+                          <div>
+                            <span class="widget-label-small">Success Rate</span>
+                            <span class="widget-val-small">4.9/5 Rating</span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Layered Glass Widget 3: Basel problem summation -->
+                      <div class="glass-widget-wrapper widget-bottom">
+                        <div class="glass-widget">
+                          <div class="widget-icon-small icon-purple"><i data-lucide="sigma"></i></div>
+                          <div>
+                            <span class="widget-label-small">Calculus II</span>
+                            <span class="widget-val-small">∑(1/n²) = π²/6</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Back Side: Math Lab Dashboard -->
+                  <div class="hero-flip-card-back">
+                    <div class="math-lab-dashboard">
+                      <div class="math-lab-header">
+                        <span class="lab-title"><i data-lucide="calculator"></i> Math Sandbox</span>
+                        <div class="math-lab-tabs">
+                          <button class="lab-tab-btn active" data-tab="grapher">Grapher</button>
+                          <button class="lab-tab-btn" data-tab="solver">Console</button>
+                          <button class="lab-tab-btn" data-tab="geometry">3D Graph</button>
+                        </div>
+                      </div>
+
+                      <div class="math-lab-content">
+                        <!-- Tab 1: Grapher Panel -->
+                        <div class="lab-tab-panel active" id="panel-grapher">
+                          <div class="grapher-container">
+                            <canvas id="grapher-canvas"></canvas>
+                            <div class="grapher-overlay">
+                              <span class="coords-display" id="grapher-coords">x: 0.00, y: 0.00</span>
+                              <span class="slope-display" id="grapher-slope">dy/dx: 0.00</span>
+                            </div>
+                          </div>
+                          <div class="grapher-controls">
+                            <button class="eqn-btn active" data-eqn="sine">y = sin(x)</button>
+                            <button class="eqn-btn" data-eqn="quadratic">y = 0.5x² - 2</button>
+                            <button class="eqn-btn" data-eqn="wave">y = cos(2x)·e^(-0.2x)</button>
+                          </div>
+                        </div>
+
+                        <!-- Tab 2: Solver Panel -->
+                        <div class="lab-tab-panel" id="panel-solver">
+                          <div class="solver-console">
+                            <div class="console-head">
+                              <div class="console-dot dot-red"></div>
+                              <div class="console-dot dot-yellow"></div>
+                              <div class="console-dot dot-green"></div>
+                              <span class="console-title">Calculus & Algebra Solver</span>
+                            </div>
+                            <div class="console-body" id="solver-console-body">
+                              <!-- Step calculations will dynamically type in here -->
+                              <div class="console-line line-input">&gt; Click Run to Solve a Problem</div>
+                            </div>
+                            <div class="solver-actions">
+                              <button id="run-solver-btn" class="btn-console-action">
+                                <i data-lucide="send"></i> <span>Solve Integral</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Tab 3: 3D Geometry Panel -->
+                        <div class="lab-tab-panel" id="panel-geometry">
+                          <div class="geometry-container">
+                            <canvas id="geometry-canvas"></canvas>
+                            <div class="geometry-instructions">
+                              <span>Drag mouse on canvas to rotate 3D graph</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
@@ -193,53 +372,198 @@
           </div>
         </section>
 
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="section how-it-works-section">
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section testimonials-section">
           <div class="container">
             <div class="section-header reveal">
-              <span class="section-subtitle">Simple Process</span>
-              <h2 class="section-title">How It Works</h2>
+              <span class="section-subtitle">Student Success Stories</span>
+              <h2 class="section-title">What Our Students Say</h2>
             </div>
+          </div>
 
-            <div class="process-steps">
-              <!-- Step 1 -->
-              <div class="process-step reveal delay-1">
-                <div class="step-icon-wrapper">
-                  <div class="step-icon">
-                    <i data-lucide="file-text"></i>
+          <!-- Slider Wrapper for horizontal scroll peek effect -->
+          <div class="testimonials-slider-wrapper">
+            <div class="testimonials-container-scroll">
+              <!-- Testimonial 1 -->
+              <div class="testimonial-card reveal delay-1">
+                <div>
+                  <div class="testimonial-rating">
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
                   </div>
-                  <div class="step-number">1</div>
+                  <p class="testimonial-text">
+                    "The step-by-step explanations saved my grade. I went from failing midterms to getting an A in my Calculus I final exam! The direct contact support is incredibly fast."
+                  </p>
                 </div>
-                <h3>1. SUBMIT YOUR PROBLEM</h3>
-                <p>Share your homework question, practice exercise, or topic you need help understanding.</p>
+                <div class="testimonial-user">
+                  <div class="user-avatar">AK</div>
+                  <div class="user-info">
+                    <h4>Aisha Khan</h4>
+                    <span>Calculus I Student</span>
+                  </div>
+                </div>
+                <div class="quote-bg">
+                  <i data-lucide="quote"></i>
+                </div>
               </div>
 
-              <div class="step-arrow"><i data-lucide="arrow-right"></i></div>
-
-              <!-- Step 2 -->
-              <div class="process-step reveal delay-2">
-                <div class="step-icon-wrapper">
-                  <div class="step-icon">
-                    <i data-lucide="headphones"></i>
+              <!-- Testimonial 2 -->
+              <div class="testimonial-card reveal delay-2">
+                <div>
+                  <div class="testimonial-rating">
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
                   </div>
-                  <div class="step-number">2</div>
+                  <p class="testimonial-text">
+                    "Extremely professional mathematics support. The assignments explanations were so clear that I actually understood the underlying concepts rather than just memorizing steps."
+                  </p>
                 </div>
-                <h3>2. GET EXPERT GUIDANCE</h3>
-                <p>Receive detailed, step-by-step explanations and personalized support.</p>
+                <div class="testimonial-user">
+                  <div class="user-avatar">ZA</div>
+                  <div class="user-info">
+                    <h4>Zain Ahmed</h4>
+                    <span>Engineering Freshman</span>
+                  </div>
+                </div>
+                <div class="quote-bg">
+                  <i data-lucide="quote"></i>
+                </div>
               </div>
 
-              <div class="step-arrow"><i data-lucide="arrow-right"></i></div>
-
-              <!-- Step 3 -->
-              <div class="process-step reveal delay-3">
-                <div class="step-icon-wrapper">
-                  <div class="step-icon">
-                    <i data-lucide="check-circle-2"></i>
+              <!-- Testimonial 3 -->
+              <div class="testimonial-card reveal delay-3">
+                <div>
+                  <div class="testimonial-rating">
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
                   </div>
-                  <div class="step-number">3</div>
+                  <p class="testimonial-text">
+                    "Integration techniques were my biggest nightmare, but the tutoring sessions made it so easy. Highly recommend for anyone struggling with college maths!"
+                  </p>
                 </div>
-                <h3>3. IMPROVE YOUR UNDERSTANDING</h3>
-                <p>Build confidence and strengthen your mathematical and problem-solving skills.</p>
+                <div class="testimonial-user">
+                  <div class="user-avatar">SM</div>
+                  <div class="user-info">
+                    <h4>Sarah Mitchell</h4>
+                    <span>Calculus II Student</span>
+                  </div>
+                </div>
+                <div class="quote-bg">
+                  <i data-lucide="quote"></i>
+                </div>
+              </div>
+
+              <!-- Testimonial 4 -->
+              <div class="testimonial-card reveal delay-4">
+                <div>
+                  <div class="testimonial-rating">
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                  </div>
+                  <p class="testimonial-text">
+                    "The homework support is top-notch. They explain the logic behind every derivative step-by-step. I finally understand optimization problems!"
+                  </p>
+                </div>
+                <div class="testimonial-user">
+                  <div class="user-avatar">AM</div>
+                  <div class="user-info">
+                    <h4>Alex Mercer</h4>
+                    <span>Calculus I Student</span>
+                  </div>
+                </div>
+                <div class="quote-bg">
+                  <i data-lucide="quote"></i>
+                </div>
+              </div>
+
+              <!-- Testimonial 5 -->
+              <div class="testimonial-card reveal delay-1">
+                <div>
+                  <div class="testimonial-rating">
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                  </div>
+                  <p class="testimonial-text">
+                    "I was struggling with matrices and system of equations. After just a few sessions, I cleared my college exams with ease. Highly recommended!"
+                  </p>
+                </div>
+                <div class="testimonial-user">
+                  <div class="user-avatar">EJ</div>
+                  <div class="user-info">
+                    <h4>Emily Johnson</h4>
+                    <span>College Algebra Student</span>
+                  </div>
+                </div>
+                <div class="quote-bg">
+                  <i data-lucide="quote"></i>
+                </div>
+              </div>
+
+              <!-- Testimonial 6 -->
+              <div class="testimonial-card reveal delay-2">
+                <div>
+                  <div class="testimonial-rating">
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                  </div>
+                  <p class="testimonial-text">
+                    "Polar coordinates and parametric equations were so confusing, but they broke down the coordinate transformations so clearly. Super helpful!"
+                  </p>
+                </div>
+                <div class="testimonial-user">
+                  <div class="user-avatar">DM</div>
+                  <div class="user-info">
+                    <h4>David Miller</h4>
+                    <span>Calculus II Student</span>
+                  </div>
+                </div>
+                <div class="quote-bg">
+                  <i data-lucide="quote"></i>
+                </div>
+              </div>
+
+              <!-- Testimonial 7 -->
+              <div class="testimonial-card reveal delay-3">
+                <div>
+                  <div class="testimonial-rating">
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                    <i data-lucide="star" class="star-icon"></i>
+                  </div>
+                  <p class="testimonial-text">
+                    "I was super lost in linear algebra and matrices, but the clear step-by-step explanations made it click. Got a high B+ in my exam!"
+                  </p>
+                </div>
+                <div class="testimonial-user">
+                  <div class="user-avatar">RC</div>
+                  <div class="user-info">
+                    <h4>Ryan Carter</h4>
+                    <span>College Math Student</span>
+                  </div>
+                </div>
+                <div class="quote-bg">
+                  <i data-lucide="quote"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -413,6 +737,46 @@
           </div>
         </div>
       </footer>
+      <!-- Contact Modal Overlay -->
+      <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+          <button id="close-contact-modal" class="modal-close-btn" aria-label="Close Modal">
+            <i data-lucide="x"></i>
+          </button>
+          <div class="modal-body">
+            <h3>Direct Contact Us</h3>
+            <p>Fill out the form below and we will get back to you immediately.</p>
+            
+            <form class="modal-contact-form" id="modal-contact-form" novalidate>
+              <div class="form-group">
+                <label for="modal-name">Name</label>
+                <input type="text" id="modal-name" name="name" placeholder="John Doe" required />
+                <span class="error-msg">Please enter your name</span>
+              </div>
+              <div class="form-group">
+                <label for="modal-email">Email</label>
+                <input type="email" id="modal-email" name="email" placeholder="john@example.com" required />
+                <span class="error-msg">Please enter a valid email</span>
+              </div>
+              <div class="form-group">
+                <label for="modal-subject">Subject</label>
+                <input type="text" id="modal-subject" name="subject" placeholder="Calculus homework help" required />
+                <span class="error-msg">Please specify a subject</span>
+              </div>
+              <div class="form-group">
+                <label for="modal-message">Message</label>
+                <textarea id="modal-message" name="message" rows="4" placeholder="Detail your homework questions or math topic here..." required></textarea>
+                <span class="error-msg">Please enter your message</span>
+              </div>
+              <button type="submit" class="btn btn-submit btn-primary full-width">
+                <span>Send Message</span>
+                <i data-lucide="send"></i>
+              </button>
+              <div class="form-status" id="modal-form-status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Script Entry -->
