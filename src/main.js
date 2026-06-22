@@ -1,14 +1,22 @@
 import './style.css';
 import { 
   createIcons, 
-  ArrowUpRight, 
-  User, 
-  Code2, 
-  Sparkles, 
-  ExternalLink, 
-  Mail, 
-  MapPin, 
-  Send 
+  BookOpen,
+  ExternalLink,
+  Layers,
+  GraduationCap,
+  Calculator,
+  Clock,
+  UserCheck,
+  ShieldCheck,
+  Compass,
+  Activity,
+  FileText,
+  ArrowRight,
+  Headphones,
+  CheckCircle2,
+  Mail,
+  Send
 } from 'lucide';
 
 // DOM Ready initialization
@@ -16,13 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Lucide Icons
   createIcons({
     icons: {
-      ArrowUpRight,
-      User,
-      Code2,
-      Sparkles,
+      BookOpen,
       ExternalLink,
+      Layers,
+      GraduationCap,
+      Calculator,
+      Clock,
+      UserCheck,
+      ShieldCheck,
+      Compass,
+      Activity,
+      FileText,
+      ArrowRight,
+      Headphones,
+      CheckCircle2,
       Mail,
-      MapPin,
       Send
     }
   });
