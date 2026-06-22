@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/', // Base path for root deployment (like Vercel)
+  base: './', // Base path (relative for GitHub Pages & root for Vercel)
   server: {
     port: 3000,
     open: true,
