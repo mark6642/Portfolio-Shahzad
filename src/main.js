@@ -23,6 +23,9 @@ import {
   Sigma
 } from 'lucide';
 
+// Web3Forms Access Key (Get a free key from https://web3forms.com)
+const WEB3FORMS_ACCESS_KEY = 'c0624b50-dd2b-4c85-8b49-f9bf8f22bc73';
+
 // DOM Ready initialization
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Lucide Icons
@@ -177,22 +180,77 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtnText.textContent = 'Sending Message...';
       submitBtn.style.opacity = '0.7';
 
-      setTimeout(() => {
-        formStatus.textContent = 'Thank you! Your message has been sent successfully.';
-        formStatus.classList.add('success');
-        
-        contactForm.reset();
-        
+      // Defensive fallback check
+      if (WEB3FORMS_ACCESS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        // Fallback Demo Mode simulation
+        setTimeout(() => {
+          formStatus.textContent = 'Thank you! (Demo Mode) Your message has been simulated successfully.';
+          formStatus.classList.add('success');
+          
+          contactForm.reset();
+          
+          submitBtn.disabled = false;
+          submitBtnText.textContent = originalText;
+          submitBtn.style.opacity = '1';
+
+          setTimeout(() => {
+            formStatus.textContent = '';
+            formStatus.classList.remove('success');
+          }, 5000);
+
+        }, 1200);
+        return;
+      }
+
+      // Real Web3Forms submission
+      const nameInput = contactForm.querySelector('#name');
+      const emailInput = contactForm.querySelector('#email');
+      const subjectInput = contactForm.querySelector('#subject');
+      const messageInput = contactForm.querySelector('#message');
+
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: nameInput ? nameInput.value : '',
+        email: emailInput ? emailInput.value : '',
+        subject: subjectInput ? subjectInput.value : 'Website Contact Form Submission',
+        message: messageInput ? messageInput.value : ''
+      };
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(async (response) => {
+        const json = await response.json();
+        if (response.status === 200) {
+          formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+          formStatus.classList.add('success');
+          contactForm.reset();
+        } else {
+          formStatus.textContent = json.message || 'Something went wrong. Please try again.';
+          formStatus.classList.add('error');
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        formStatus.textContent = 'Something went wrong. Please try again.';
+        formStatus.classList.add('error');
+      })
+      .finally(() => {
         submitBtn.disabled = false;
         submitBtnText.textContent = originalText;
         submitBtn.style.opacity = '1';
-
+        
         setTimeout(() => {
           formStatus.textContent = '';
           formStatus.classList.remove('success');
+          formStatus.classList.remove('error');
         }, 5000);
-
-      }, 1500);
+      });
     });
   }
 
@@ -287,25 +345,89 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtnText.textContent = 'Sending Message...';
       submitBtn.style.opacity = '0.7';
 
-      setTimeout(() => {
-        modalFormStatus.textContent = 'Thank you! Your message has been sent successfully.';
-        modalFormStatus.classList.add('success');
-        
-        modalForm.reset();
-        
+      // Defensive fallback check
+      if (WEB3FORMS_ACCESS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        // Fallback Demo Mode simulation
+        setTimeout(() => {
+          modalFormStatus.textContent = 'Thank you! (Demo Mode) Your message has been simulated successfully.';
+          modalFormStatus.classList.add('success');
+          
+          modalForm.reset();
+          
+          submitBtn.disabled = false;
+          submitBtnText.textContent = originalText;
+          submitBtn.style.opacity = '1';
+
+          // Automatically close modal after 2.5 seconds upon successful submit
+          setTimeout(() => {
+            contactModal.classList.remove('open');
+            document.body.classList.remove('modal-open');
+            modalFormStatus.textContent = '';
+            modalFormStatus.classList.remove('success');
+          }, 2500);
+
+        }, 1200);
+        return;
+      }
+
+      // Real Web3Forms submission
+      const nameInput = modalForm.querySelector('#modal-name');
+      const emailInput = modalForm.querySelector('#modal-email');
+      const subjectInput = modalForm.querySelector('#modal-subject');
+      const messageInput = modalForm.querySelector('#modal-message');
+
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: nameInput ? nameInput.value : '',
+        email: emailInput ? emailInput.value : '',
+        subject: subjectInput ? subjectInput.value : 'Website Contact Modal Submission',
+        message: messageInput ? messageInput.value : ''
+      };
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(async (response) => {
+        const json = await response.json();
+        if (response.status === 200) {
+          modalFormStatus.textContent = 'Thank you! Your message has been sent successfully.';
+          modalFormStatus.classList.add('success');
+          modalForm.reset();
+          
+          // Automatically close modal after 2.5 seconds
+          setTimeout(() => {
+            contactModal.classList.remove('open');
+            document.body.classList.remove('modal-open');
+            modalFormStatus.textContent = '';
+            modalFormStatus.classList.remove('success');
+          }, 2500);
+        } else {
+          modalFormStatus.textContent = json.message || 'Something went wrong. Please try again.';
+          modalFormStatus.classList.add('error');
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        modalFormStatus.textContent = 'Something went wrong. Please try again.';
+        modalFormStatus.classList.add('error');
+      })
+      .finally(() => {
         submitBtn.disabled = false;
         submitBtnText.textContent = originalText;
         submitBtn.style.opacity = '1';
-
-        // Automatically close modal after 2.5 seconds upon successful submit
+        
         setTimeout(() => {
-          contactModal.classList.remove('open');
-          document.body.classList.remove('modal-open');
-          modalFormStatus.textContent = '';
-          modalFormStatus.classList.remove('success');
-        }, 2500);
-
-      }, 1500);
+          if (!modalFormStatus.classList.contains('success')) {
+            modalFormStatus.textContent = '';
+            modalFormStatus.classList.remove('error');
+          }
+        }, 5000);
+      });
     });
   }
 
@@ -544,12 +666,12 @@ function initSubjectRotator() {
   if (!element) return;
   
   const subjects = [
+    'High School Mathematics',
+    'College Mathematics',
     'Calculus',
     'Linear Algebra',
     'Differential Equations',
     'Discrete Mathematics',
-    'College Algebra',
-    'Calculus II',
     'Probability & Statistics'
   ];
   
